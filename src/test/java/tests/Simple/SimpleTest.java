@@ -23,27 +23,5 @@ public class SimpleTest extends BaseTest {
         Thread.sleep(4000);
     }
 
-    @Test
-    public void api() {
-        Gson gson = new Gson();
-        gson = new GsonBuilder()
-                .excludeFieldsWithoutExposeAnnotation().create();
-
-        RestAssured.baseURI = "https://api.github.com/";
-
-        RestAssured.requestSpecification = given()
-                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
-                .header(HTTP.CONTENT_TYPE, ContentType.JSON);
-
-        given()
-                .when()
-                .log().uri()
-                .get("users/AQA18onl/repos")
-                .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
-
-    }
-
 
 }

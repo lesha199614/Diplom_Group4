@@ -1,4 +1,4 @@
-package tests;
+package tests.Simple;
 
 import baseEntities.BaseTest;
 import com.google.gson.Gson;

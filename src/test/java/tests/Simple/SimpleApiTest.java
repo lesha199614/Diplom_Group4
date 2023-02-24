@@ -1,4 +1,4 @@
-package tests;
+package tests.Simple;
 
 import baseEntities.BaseApiTest;
 import org.apache.http.HttpStatus;

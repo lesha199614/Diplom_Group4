@@ -1,14 +1,7 @@
 package tests.api;
 
 import baseEntities.BaseApiTest;
-import configuration.ReadProperties;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.mapper.ObjectMapperType;
-import models.User;
 import org.apache.http.HttpStatus;
-import org.apache.http.protocol.HTTP;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Endpoints;
 

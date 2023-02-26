@@ -2,9 +2,7 @@ package dbTables;
 
 import configuration.ReadProperties;
 import models.Repository;
-import models.User;
 import services.DataBaseService;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

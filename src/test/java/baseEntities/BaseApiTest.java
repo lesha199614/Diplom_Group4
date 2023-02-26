@@ -10,8 +10,7 @@ import dbTables.UserTable;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.apache.http.protocol.HTTP;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import services.DataBaseService;
 
 import static io.restassured.RestAssured.given;
@@ -24,12 +23,12 @@ public class BaseApiTest {
     protected RepositoryTable repositoryTable;
     protected RepositoryAdapter repositoryAdapter;
 
-    @BeforeTest
+    @BeforeClass
     public void setupApi() {
         userAdapter = new UserAdapter();
         repositoryAdapter = new RepositoryAdapter();
         dbService = new DataBaseService();
-        Gson gson = new Gson();
+        gson = new Gson();
         gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation().create();
 
@@ -39,11 +38,12 @@ public class BaseApiTest {
                 .auth().preemptive().oauth2(ReadProperties.token())
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON);
 
-        userTable = new UserTable(dbService);
         repositoryTable = new RepositoryTable(dbService);
+        userTable = new UserTable(dbService);
+
     }
 
-    @AfterTest
+    @AfterClass
     public void closeDb() {
         dbService.closeConnection();
     }

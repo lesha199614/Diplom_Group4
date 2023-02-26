@@ -20,7 +20,6 @@ public class BaseTest {
 
         mainPage = new MainPage();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
         Configuration.browser = ReadProperties.browserName();
         Configuration.baseUrl = ReadProperties.getUrl();
         Configuration.timeout = 15000;

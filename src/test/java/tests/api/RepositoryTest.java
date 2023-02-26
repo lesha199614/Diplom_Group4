@@ -2,16 +2,9 @@ package tests.api;
 
 import baseEntities.BaseApiTest;
 import com.github.javafaker.Faker;
-import configuration.ReadProperties;
-import io.restassured.mapper.ObjectMapperType;
 import models.Repository;
-import models.User;
-import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.Endpoints;
-
-import static io.restassured.RestAssured.given;
 
 public class RepositoryTest extends BaseApiTest {
 
@@ -19,6 +12,7 @@ public class RepositoryTest extends BaseApiTest {
 
     @Test
     public void dropTable() {
+
         repositoryTable.dropTable();
     }
 

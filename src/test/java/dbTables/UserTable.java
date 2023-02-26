@@ -1,11 +1,8 @@
 package dbTables;
 
-import com.google.gson.annotations.SerializedName;
 import configuration.ReadProperties;
-import lombok.EqualsAndHashCode;
 import models.User;
 import services.DataBaseService;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

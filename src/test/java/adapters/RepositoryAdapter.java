@@ -3,7 +3,6 @@ package adapters;
 import configuration.ReadProperties;
 import io.restassured.mapper.ObjectMapperType;
 import models.Repository;
-import models.User;
 import org.apache.http.HttpStatus;
 import utils.Endpoints;
 

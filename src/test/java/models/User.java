@@ -22,5 +22,6 @@ public class User {
     public String email;
     public String bio;
     @SerializedName(value = "public_repos")
+    @EqualsAndHashCode.Exclude
     public int publicRepos;
 }

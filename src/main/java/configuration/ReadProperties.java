@@ -37,6 +37,10 @@ public class ReadProperties {
     public static String database() {
         return properties.getProperty("database");
     }
+    public static String token() {
+        return properties.getProperty("token");
+    }
+
 
     public static boolean isHeadless() {
         return properties.getProperty("headless").equalsIgnoreCase("true");

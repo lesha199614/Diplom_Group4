@@ -6,15 +6,19 @@ import configuration.ReadProperties;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.apache.http.protocol.HTTP;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import services.DataBaseService;
 
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
     protected Gson gson;
+    protected DataBaseService dbService;
 
     @BeforeTest
     public void setupApi() {
+        dbService = new DataBaseService();
         Gson gson = new Gson();
         gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation().create();
@@ -22,8 +26,12 @@ public class BaseApiTest {
         RestAssured.baseURI = ReadProperties.getApiUrl();
 
         RestAssured.requestSpecification = given()
-                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
+                .auth().preemptive().oauth2(ReadProperties.token())
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON);
+    }
 
+    @AfterTest
+    public void closeDb() {
+        dbService.closeConnection();
     }
 }

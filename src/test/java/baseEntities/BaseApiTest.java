@@ -1,9 +1,11 @@
 package baseEntities;
 
+import adapters.RepositoryAdapter;
 import adapters.UserAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import configuration.ReadProperties;
+import dbTables.RepositoryTable;
 import dbTables.UserTable;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -19,10 +21,13 @@ public class BaseApiTest {
     protected DataBaseService dbService;
     protected UserAdapter userAdapter;
     protected UserTable userTable;
+    protected RepositoryTable repositoryTable;
+    protected RepositoryAdapter repositoryAdapter;
 
     @BeforeTest
     public void setupApi() {
         userAdapter = new UserAdapter();
+        repositoryAdapter = new RepositoryAdapter();
         dbService = new DataBaseService();
         Gson gson = new Gson();
         gson = new GsonBuilder()
@@ -35,6 +40,7 @@ public class BaseApiTest {
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON);
 
         userTable = new UserTable(dbService);
+        repositoryTable = new RepositoryTable(dbService);
     }
 
     @AfterTest

@@ -1,4 +1,4 @@
-package tests.Simple;
+package tests.api;
 
 import baseEntities.BaseApiTest;
 import configuration.ReadProperties;

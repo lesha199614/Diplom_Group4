@@ -13,6 +13,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class User {
     public String login;
+    public String password;
     @EqualsAndHashCode.Exclude
     public int id;
     public String type;

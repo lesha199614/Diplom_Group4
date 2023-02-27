@@ -23,9 +23,10 @@ public class RepositoryTest extends BaseApiTest {
 
     @Test(dependsOnMethods = "createTable")
     public void insertRepositoryToTheTable() {
+        Faker faker = new Faker();
         expectedRepository = Repository.builder()
-                .name(Faker.instance().bothify("???????"))
-                .description(Faker.instance().bothify("???????"))
+                .name(faker.pokemon().name())
+                .description(faker.pokemon().location())
                 .IsPrivate(false)
                 .build();
         repositoryTable.addRepository(expectedRepository);

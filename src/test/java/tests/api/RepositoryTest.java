@@ -13,32 +13,7 @@ public class RepositoryTest extends BaseApiTest {
 
     Repository expectedRepository;
 
-    //@Test
-    public void dropTable() {
-        repositoryTable.dropTable();
-    }
-
-    //@Test(dependsOnMethods = "dropTable")
-    public void createTable() {
-        repositoryTable.createTable();
-    }
-
-    //@Test(dependsOnMethods = "createTable")
-    public void insertRepositoryToTheTable() {
-        logger.info("Creating Expected Repository");
-        Faker faker = new Faker();
-        expectedRepository = Repository.builder()
-                .name(faker.pokemon().name())
-                .description(faker.pokemon().location())
-                .IsPrivate(false)
-                .build();
-        repositoryTable.addRepository(expectedRepository);
-        logger.info("Comparing expected Repository and Repository in the table");
-        Assert.assertEquals(repositoryTable.getRepository(1), expectedRepository);
-    }
-
-
-    @Test//(dependsOnMethods = "insertRepositoryToTheTable")
+    @Test
     public void createRepo() {
         expectedRepository = repositoryTable.getRepository(1);
         repositoryAdapter.createRepository(expectedRepository);

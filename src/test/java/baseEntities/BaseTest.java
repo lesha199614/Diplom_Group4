@@ -6,6 +6,7 @@ import configuration.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import pages.MainPage;
 
 
@@ -15,7 +16,7 @@ public class BaseTest {
 
     public MainPage mainPage;
 
-    @BeforeSuite
+    @BeforeTest
     public void setUp() {
 
         mainPage = new MainPage();

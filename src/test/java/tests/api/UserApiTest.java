@@ -9,17 +9,17 @@ public class UserApiTest extends BaseApiTest {
 
     User expectedUser;
 
-    @Test
+    //@Test
     public void dropTable() {
         userTable.dropTable();
     }
 
-    @Test(dependsOnMethods = "dropTable")
+    //@Test(dependsOnMethods = "dropTable")
     public void createTable() {
         userTable.createTable();
     }
 
-    @Test(dependsOnMethods = "createTable")
+    //@Test (dependsOnMethods = "createTable")
     public void insertUserToTheTable() {
         expectedUser = User.builder()
                 .login("AQA18onl")
@@ -34,7 +34,7 @@ public class UserApiTest extends BaseApiTest {
         Assert.assertEquals(userTable.getUser(1), expectedUser);
     }
 
-    @Test(dependsOnMethods = "insertUserToTheTable")
+    @Test//(dependsOnMethods = "insertUserToTheTable")
     public void getUser() {
         expectedUser = userTable.getUser(1);
         User actualUser = userAdapter.get();

@@ -2,11 +2,14 @@ package dbTables;
 
 import configuration.ReadProperties;
 import models.Repository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import services.DataBaseService;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RepositoryTable {
+    Logger logger = LogManager.getLogger(RepositoryTable.class);
     private DataBaseService dbService;
 
     public RepositoryTable(DataBaseService dbService) {
@@ -14,6 +17,7 @@ public class RepositoryTable {
     }
 
     public void createTable() {
+        logger.info("Creating Repository table");
 
         String createTableSQL = "Create table Repository " +
                 "(   id                SERIAL PRIMARY KEY," +
@@ -25,11 +29,13 @@ public class RepositoryTable {
     }
 
     public void dropTable() {
+        logger.info("Drop Repository table");
         String dropTableSQL = "DROP TABLE if exists " + ReadProperties.database() + ".Repository";
         dbService.executeSQL(dropTableSQL);
     }
 
     public void addRepository(Repository repository) {
+        logger.info("Adding Repository to the Repository table");
         String insertUserSQL = "INSERT INTO " + ReadProperties.database() + ".Repository (" +
                 "name, description, isPrivate)" +
                 "VALUES ('" + repository.getName() + "', '" + repository.getDescription() + "', " +
@@ -38,6 +44,7 @@ public class RepositoryTable {
     }
 
     public Repository getRepository(int id) {
+        logger.info("Getting Repository by id from Repository table");
         String sql = "SELECT * FROM " + ReadProperties.database() + ".Repository " +
                 "WHERE id = " + id;
         ResultSet rs = dbService.executeQuery(sql);

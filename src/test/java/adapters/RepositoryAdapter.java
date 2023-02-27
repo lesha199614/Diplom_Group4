@@ -4,13 +4,17 @@ import configuration.ReadProperties;
 import io.restassured.mapper.ObjectMapperType;
 import models.Repository;
 import org.apache.http.HttpStatus;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.Endpoints;
-
 import static io.restassured.RestAssured.given;
 
 public class RepositoryAdapter {
 
+    Logger logger = LogManager.getLogger(RepositoryAdapter.class);
+
     public void createRepository(Repository repository) {
+        logger.info("Creating Repository in GitHub");
         given()
                 .body(repository, ObjectMapperType.GSON)
                 .when()
@@ -22,6 +26,7 @@ public class RepositoryAdapter {
     }
 
     public Repository getRepository(String repositoryName) {
+        logger.info("Getting Repository by name from GitHub");
         return given()
                 .pathParam("owner", ReadProperties.owner())
                 .pathParam("repo", repositoryName)
@@ -36,6 +41,7 @@ public class RepositoryAdapter {
     }
 
     public Repository updateRepository(Repository repository) {
+        logger.info("Update Repository in GitHub");
         return given()
                 .pathParam("repo", repository.getName())
                 .pathParam("owner", ReadProperties.owner())
@@ -51,6 +57,7 @@ public class RepositoryAdapter {
     }
 
     public void deleteRepository(String repositoryName) {
+        logger.info("Deleting Repository in GitHub by name");
         given()
                 .pathParam("repo", repositoryName)
                 .pathParam("owner", ReadProperties.owner())

@@ -1,15 +1,18 @@
 package baseEntities;
 
+import adapters.CollaboratorAdapter;
 import adapters.RepositoryAdapter;
 import adapters.UserAdapter;
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import configuration.ReadProperties;
+import dbTables.CollaboratorsTable;
 import dbTables.RepositoryTable;
 import dbTables.UserTable;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import models.Collaborator;
 import models.Repository;
 import models.User;
 import org.apache.http.protocol.HTTP;
@@ -24,19 +27,24 @@ public class BaseApiTest {
     protected UserTable userTable;
     protected RepositoryTable repositoryTable;
     protected RepositoryAdapter repositoryAdapter;
+    protected CollaboratorsTable collaboratorsTable;
+    protected CollaboratorAdapter collaboratorAdapter;
 
     public BaseApiTest() {
         this.dbService = new DataBaseService();
         this.userAdapter = new UserAdapter();
+        this.repositoryAdapter = new RepositoryAdapter();
+        this.collaboratorAdapter = new CollaboratorAdapter();
         this.userTable = new UserTable(dbService);
         this.repositoryTable = new RepositoryTable(dbService);
-        this.repositoryAdapter = new RepositoryAdapter();
+        this.collaboratorsTable= new CollaboratorsTable(dbService);
     }
 
     @BeforeSuite
     public void setUp(){
         repositoryTable.createTable();
         userTable.createTable();
+        collaboratorsTable.createTable();
 
         User expectedUser = User.builder()
                 .login("AQA18onl")
@@ -48,6 +56,14 @@ public class BaseApiTest {
                 .bio("AQA18onlGr4 Project")
                 .publicRepos(1).build();
         userTable.addUser(expectedUser);
+
+        Collaborator collaborator = Collaborator.builder()
+                .id(126247707)
+                .login("AQA18onl")
+                .type("User")
+                .roleName("admin")
+                .build();
+        collaboratorsTable.addCollaborator(collaborator);
 
         Faker faker = new Faker();
         Repository repository = Repository.builder()

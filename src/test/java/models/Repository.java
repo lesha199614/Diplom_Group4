@@ -13,9 +13,9 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Repository {
     @EqualsAndHashCode.Exclude
-    public int id;
-    public String name;
-    public String description;
+    private int id;
+    private String name;
+    private String description;
     @SerializedName(value = "private")
-    public boolean IsPrivate;
+    private boolean IsPrivate;
 }

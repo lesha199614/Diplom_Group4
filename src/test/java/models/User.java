@@ -12,17 +12,17 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class User {
-    public String login;
-    public String password;
+    private String login;
+    private String password;
     @EqualsAndHashCode.Exclude
-    public int id;
-    public String type;
-    public String name;
-    public String company;
-    public String location;
-    public String email;
-    public String bio;
+    private int id;
+    private String type;
+    private String name;
+    private String company;
+    private String location;
+    private String email;
+    private String bio;
     @SerializedName(value = "public_repos")
     @EqualsAndHashCode.Exclude
-    public int publicRepos;
+    private int publicRepos;
 }

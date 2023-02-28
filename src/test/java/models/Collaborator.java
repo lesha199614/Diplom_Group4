@@ -12,11 +12,11 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class Collaborator {
-    public String login;
+    private String login;
     @EqualsAndHashCode.Exclude
-    public int id;
-    public String type;
+    private int id;
+    private String type;
     @SerializedName(value = "role_name")
-    public String roleName;
+    private String roleName;
 
 }

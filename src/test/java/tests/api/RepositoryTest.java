@@ -30,7 +30,7 @@ public class RepositoryTest extends BaseApiTest {
     @Test(dependsOnMethods = "getRepository")
     public void getCollaborator() {
         expectedCollaborator = collaboratorsTable.getCollaborator(1);
-        Collaborator actualCollaborator = collaboratorAdapter.getCollaborator(ReadProperties.owner(),expectedRepository.getName());
+        Collaborator actualCollaborator = collaboratorAdapter.getCollaborators(ReadProperties.owner(),expectedRepository.getName()).get(0);
         Assert.assertEquals(actualCollaborator, expectedCollaborator);
     }
 

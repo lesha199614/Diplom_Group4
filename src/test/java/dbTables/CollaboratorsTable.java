@@ -48,7 +48,7 @@ public class CollaboratorsTable {
                 collaborator.setLogin(rs.getString("login"));
                 collaborator.setId(rs.getInt("id"));
                 collaborator.setType(rs.getString("type"));
-                collaborator.setRoleName(rs.getString("name"));
+                collaborator.setRoleName(rs.getString("roleName"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

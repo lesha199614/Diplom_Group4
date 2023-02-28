@@ -42,6 +42,9 @@ public class BaseApiTest {
 
     @BeforeSuite
     public void setUp(){
+        repositoryTable.dropTable();
+        userTable.dropTable();
+        collaboratorsTable.dropTable();
         repositoryTable.createTable();
         userTable.createTable();
         collaboratorsTable.createTable();
@@ -88,6 +91,7 @@ public class BaseApiTest {
     public void tearDown(){
         repositoryTable.dropTable();
         userTable.dropTable();
+        collaboratorsTable.dropTable();
         dbService.closeConnection();
     }
 }

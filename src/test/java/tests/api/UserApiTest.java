@@ -22,16 +22,4 @@ public class UserApiTest extends BaseApiTest {
         Assert.assertEquals(actualUser, expectedUser);
     }
 
-    @Test
-    public void get() {
-        given()
-                .when()
-                .log().uri()
-                .get(Endpoints.GET_USER)
-                .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK)
-                .extract().as(User.class, ObjectMapperType.GSON);
-    }
-
 }

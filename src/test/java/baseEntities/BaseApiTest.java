@@ -19,16 +19,15 @@ import org.apache.http.protocol.HTTP;
 import org.testng.annotations.*;
 import services.DataBaseService;
 
-import java.sql.SQLException;
 
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
     protected Gson gson;
     protected DataBaseService dbService;
-    protected UserAdapter userAdapter;
     protected UserTable userTable;
     protected RepositoryTable repositoryTable;
+    protected UserAdapter userAdapter;
     protected RepositoryAdapter repositoryAdapter;
     protected CollaboratorsTable collaboratorsTable;
     protected CollaboratorAdapter collaboratorAdapter;
@@ -70,7 +69,7 @@ public class BaseApiTest {
 
         Faker faker = new Faker();
         Repository repository = Repository.builder()
-                .name(faker.pokemon().name())
+                .name(faker.pokemon().name().replaceAll(" ",""))
                 .description(faker.pokemon().location())
                 .IsPrivate(false)
                 .build();

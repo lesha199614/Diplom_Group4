@@ -18,6 +18,9 @@ import models.User;
 import org.apache.http.protocol.HTTP;
 import org.testng.annotations.*;
 import services.DataBaseService;
+
+import java.sql.SQLException;
+
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
@@ -42,9 +45,6 @@ public class BaseApiTest {
 
     @BeforeSuite
     public void setUp(){
-        repositoryTable.dropTable();
-        userTable.dropTable();
-        collaboratorsTable.dropTable();
         repositoryTable.createTable();
         userTable.createTable();
         collaboratorsTable.createTable();
@@ -87,7 +87,7 @@ public class BaseApiTest {
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON);
     }
     
-    @AfterSuite
+    @AfterTest
     public void tearDown(){
         repositoryTable.dropTable();
         userTable.dropTable();

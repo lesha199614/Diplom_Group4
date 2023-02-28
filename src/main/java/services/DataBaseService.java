@@ -2,6 +2,7 @@ package services;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.remote.service.DriverService;
 
 import java.sql.*;
 
@@ -10,10 +11,9 @@ public class DataBaseService {
     static final String DB_TYPE = "mysql";
     static final String SERVER_NAME = "sql7.freesqldatabase.com";
     static final String PORT = "3306";
-    static final String DB_NAME = "sql7600791";
-
-    static final String DB_USER = "sql7600791";
-    static final String DB_PASSWORD = "W4AitEug1J";
+    static final String DB_NAME = "sql7600788";
+    static final String DB_USER = "sql7600788";
+    static final String DB_PASSWORD = "kB88kjGWPY";
 
     Connection connection;
 
@@ -27,7 +27,7 @@ public class DataBaseService {
         }
 
         String jdbc = "jdbc:" + DB_TYPE + "://" + SERVER_NAME + ":" + PORT + "/" + DB_NAME;
-        String DB_URL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7600791";
+        //String DB_URL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7600791";
 
         try {
             connection = DriverManager.getConnection(jdbc, DB_USER, DB_PASSWORD);

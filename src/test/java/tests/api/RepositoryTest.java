@@ -12,15 +12,20 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import services.DataBaseService;
 import utils.Endpoints;
+
+import java.sql.SQLException;
 
 import static io.restassured.RestAssured.given;
 
 public class RepositoryTest extends BaseApiTest {
+
     Logger logger = LogManager.getLogger(RepositoryTest.class);
 
     Repository expectedRepository;
     Collaborator expectedCollaborator;
+
 
     @Test
     public void createRepo() {
@@ -34,7 +39,8 @@ public class RepositoryTest extends BaseApiTest {
         Assert.assertEquals(actualCollaborator, expectedCollaborator);
     }
 
-    @Test(dependsOnMethods = "createRepo")
+
+    @Test(dependsOnMethods = "getCollaborator")
     public void getRepository() {
         Repository actualRepository = repositoryAdapter.getRepository(expectedRepository.getName());
         Assert.assertEquals(actualRepository, expectedRepository);

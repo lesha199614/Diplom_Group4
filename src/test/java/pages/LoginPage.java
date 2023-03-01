@@ -3,21 +3,28 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
+    private final SelenideElement userNameInputLocator = $("#login_field");
+    private final SelenideElement passwordInputLocator = $("#password");
+    private final SelenideElement loginButtonLocator = $(By.className("js-sign-in-button"));
+    private final SelenideElement incorrectLoginLocator = $(By.className("js-flash-alert"));
 
-    private final By username = By.cssSelector("#login_field");
-    private final By password = By.cssSelector("#password");
-    private final By signInButton = By.cssSelector(".js-sign-in-button");
+    public SelenideElement getUserNameInputLocator() {
+        return userNameInputLocator;
+    }
 
-    public SelenideElement userName(){
-        return $(username);
+    public SelenideElement getPasswordInputLocator() {
+        return passwordInputLocator;
     }
-    public SelenideElement password(){
-        return $(password);
+
+    public SelenideElement getLoginButtonLocator() {
+        return loginButtonLocator;
     }
-    public SelenideElement signInButton(){
-        return $(signInButton);
+
+    public SelenideElement getIncorrectLoginLocator() {
+        return incorrectLoginLocator.shouldBe(visible);
     }
 }

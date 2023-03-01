@@ -34,7 +34,7 @@ public class CollaboratorsTable {
     public void addCollaborator(Collaborator collaborator) {
         String insertUserSQL = "INSERT INTO " + ReadProperties.database() + ".Collaborators (" +
                 "login, type, roleName)" +
-                "VALUES ('" + collaborator.getLogin() +"', '"+ collaborator.getType() + "', '" + collaborator.getRoleName() + "');";
+                "VALUES ('" + collaborator.getLogin() + "', '" + collaborator.getType() + "', '" + collaborator.getRoleName() + "');";
         dbService.executeSQL(insertUserSQL);
     }
 

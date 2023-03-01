@@ -7,6 +7,7 @@ import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.Endpoints;
+
 import static io.restassured.RestAssured.given;
 
 public class RepositoryAdapter {

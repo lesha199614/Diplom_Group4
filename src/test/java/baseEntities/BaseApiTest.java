@@ -39,11 +39,11 @@ public class BaseApiTest {
         this.collaboratorAdapter = new CollaboratorAdapter();
         this.userTable = new UserTable(dbService);
         this.repositoryTable = new RepositoryTable(dbService);
-        this.collaboratorsTable= new CollaboratorsTable(dbService);
+        this.collaboratorsTable = new CollaboratorsTable(dbService);
     }
 
     @BeforeSuite
-    public void setUp(){
+    public void setUp() {
         repositoryTable.createTable();
         userTable.createTable();
         collaboratorsTable.createTable();
@@ -69,7 +69,7 @@ public class BaseApiTest {
 
         Faker faker = new Faker();
         Repository repository = Repository.builder()
-                .name(faker.pokemon().name().replaceAll(" ",""))
+                .name(faker.pokemon().name().replaceAll(" ", ""))
                 .description(faker.pokemon().location())
                 .IsPrivate(false)
                 .build();
@@ -85,9 +85,9 @@ public class BaseApiTest {
                 .auth().preemptive().oauth2(ReadProperties.token())
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON);
     }
-    
+
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         repositoryTable.dropTable();
         userTable.dropTable();
         collaboratorsTable.dropTable();

@@ -36,7 +36,7 @@ public class GetAFE extends BaseApiTest {
     }
 
     @Test
-    public void close(){
+    public void close() {
         dbService.closeConnection();
     }
 }

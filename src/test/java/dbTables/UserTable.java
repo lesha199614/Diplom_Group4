@@ -3,6 +3,7 @@ package dbTables;
 import configuration.ReadProperties;
 import models.User;
 import services.DataBaseService;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -37,7 +38,7 @@ public class UserTable {
     public void addUser(User user) {
         String insertUserSQL = "INSERT INTO " + ReadProperties.database() + ".Users (" +
                 "login, type, name, company, location, email, bio, publicRepos)" +
-                "VALUES ('" + user.getLogin() +"', '"+ user.getType() + "', '" + user.getName() + "', '"
+                "VALUES ('" + user.getLogin() + "', '" + user.getType() + "', '" + user.getName() + "', '"
                 + user.getCompany() + "', '" + user.getLocation() + "', '" + user.getEmail() + "', '"
                 + user.getBio() + "', '" + user.getPublicRepos() + "');";
         dbService.executeSQL(insertUserSQL);

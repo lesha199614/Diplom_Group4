@@ -15,6 +15,7 @@ import static io.restassured.RestAssured.given;
 public class UserApiTest extends BaseApiTest {
 
     User expectedUser;
+
     @Test
     public void getUser() {
         expectedUser = userTable.getUser(1);

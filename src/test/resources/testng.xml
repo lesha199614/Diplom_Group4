@@ -11,6 +11,12 @@
     </test>
     <test name="GUI">
         <classes>
+            <class name="tests.gui.negativeTest.IncorrectDataTest"></class>
+        </classes>
+    </test>
+    <test name="GUI_Positive">
+        <classes>
+            <class name="tests.gui.positiveTest.RepositoryTest"></class>
         </classes>
     </test>
 </suite>

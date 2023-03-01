@@ -1,10 +1,6 @@
 package tests.gui.positiveTest;
 
 import baseEntities.BaseTest;
-import com.github.javafaker.Faker;
-import configuration.ReadProperties;
-import models.Repository;
-import models.User;
 import org.testng.annotations.Test;
 
 
@@ -12,28 +8,13 @@ import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
 
 public class RepositoryTest extends BaseTest {
-
-    Repository repository;
-    User user;
-
     @Test
     public void creatingRepositoryTest() {
-        Faker faker = new Faker();
-        user = User.builder()
-                .name(ReadProperties.username())
-                .password(ReadProperties.password())
-                .build();
-
-        repository = Repository.builder()
-                .name(faker.beer().name().replaceAll(" ", ""))
-                .description(faker.beer().name())
-                .build();
-
         navigationSteps.clickSignInButtonOnMainPage()
                 .loginSuccessfulGitHub(user)
                 .clickNewRepositoryButton()
                 .inputInfoRepository(repository)
-                .clickCreateButtonCreateTest()
+                .clickCreateRepositoryButton()
                 .successfulCreationRepositoryPage().shouldBe(visible);
     }
 

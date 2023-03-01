@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import static io.restassured.RestAssured.given;
 
 public class UserApiTest extends BaseApiTest {
-
     User expectedUser;
 
     @Test
@@ -22,5 +21,4 @@ public class UserApiTest extends BaseApiTest {
         User actualUser = userAdapter.get();
         Assert.assertEquals(actualUser, expectedUser);
     }
-
 }

@@ -14,7 +14,6 @@ public class NavigationSteps {
     private SuccessCreationRepositoryPage successCreationRepositoryPage;
     private CreateRepositoryPage createRepositoryPage;
     private RepositorySettingsPage repositorySettingsPage;
-    private ProjectPage projectPage;
 
     public NavigationSteps() {
         mainPage = new MainPage();
@@ -22,7 +21,6 @@ public class NavigationSteps {
         successCreationRepositoryPage = new SuccessCreationRepositoryPage();
         createRepositoryPage = new CreateRepositoryPage();
         repositorySettingsPage = new RepositorySettingsPage();
-        projectPage = new ProjectPage();
     }
 
     public UserSteps clickSignInButtonOnMainPage() {
@@ -30,32 +28,15 @@ public class NavigationSteps {
         return new UserSteps();
     }
 
-
     public RepositorySteps clickNewRepositoryButton() {
         menuPage.getIconPlusButtonLocator().click();
         menuPage.getNewRepositoryButtonLocator().click();
         return new RepositorySteps();
     }
 
-    public SuccessCreationRepositoryPage clickCreateButtonCreateTest() {
+    public SuccessCreationRepositoryPage clickCreateRepositoryButton() {
         createRepositoryPage.getCreateRepositoryButtonLocator().click();
         return successCreationRepositoryPage;
-    }
-
-    public RepositorySteps clickCreateButtonDownloadTest() {
-        createRepositoryPage.getCreateRepositoryButtonLocator().click();
-        return new RepositorySteps();
-    }
-
-
-    public NavigationSteps clickCreateButtonDeleteTest() {
-        createRepositoryPage.getCreateRepositoryButtonLocator().click();
-        return this;
-    }
-
-    public NavigationSteps clickCreateButtonPopUpTest() {
-        createRepositoryPage.getCreateRepositoryButtonLocator().click();
-        return this;
     }
 
     public ProjectPage clickProjectButton() {
@@ -66,11 +47,6 @@ public class NavigationSteps {
     public NavigationSteps clickSettingButton() {
         successCreationRepositoryPage.getSettingButtonLocator().click();
         return this;
-    }
-
-    public RepositorySteps clickDeleteRepositoryButtonDeleteTest() {
-        repositorySettingsPage.getDeleteRepositoryButtonLocator().click();
-        return new RepositorySteps();
     }
 
     public RepositorySettingsPage clickDeleteRepositoryButtonDialogBoxTest() {
@@ -87,5 +63,4 @@ public class NavigationSteps {
         repositorySettingsPage.getRepositories().click();
         return new ListRepositoriesPage();
     }
-
 }

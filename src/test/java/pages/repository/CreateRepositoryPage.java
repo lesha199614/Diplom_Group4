@@ -3,6 +3,7 @@ package pages.repository;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -21,5 +22,9 @@ public class CreateRepositoryPage {
 
     public SelenideElement getCreateRepositoryButtonLocator() {
         return createRepositoryButtonLocator.shouldBe(enabled);
+    }
+
+    public SelenideElement getCreateRepositoryButtonByEmptyStringLocator() {
+        return createRepositoryButtonLocator;
     }
 }

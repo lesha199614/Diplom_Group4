@@ -1,5 +1,6 @@
 package steps;
 
+import com.codeborne.selenide.SelenideElement;
 import models.Repository;
 import pages.repository.CreateRepositoryPage;
 import pages.repository.DownloadFilePage;
@@ -47,5 +48,13 @@ public class RepositorySteps {
 
     public String getDeleteText() {
         return repositorySettingsPage.delete().getOwnText();
+    }
+
+    public CreateRepositoryPage inputInfoRepositoryByEmptyString(Repository repository) {
+        createRepositoryPage.getInputRepositoryNameLocator().click();
+        createRepositoryPage.getInputRepositoryNameLocator().setValue(repository.getName());
+        createRepositoryPage.getInputDescriptionRepositoryLocator().click();
+        createRepositoryPage.getInputDescriptionRepositoryLocator().setValue(repository.getDescription());
+        return createRepositoryPage;
     }
 }

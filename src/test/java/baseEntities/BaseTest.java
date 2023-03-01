@@ -2,13 +2,17 @@ package baseEntities;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.github.javafaker.Faker;
 import configuration.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
+import models.Repository;
+import models.User;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import steps.NavigationSteps;
 import steps.RepositorySteps;
 import steps.UserSteps;
+import tests.data.StaticProvider;
 
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -18,7 +22,10 @@ public class BaseTest {
     protected NavigationSteps navigationSteps;
     protected RepositorySteps repositorySteps;
     protected UserSteps userSteps;
-
+    protected Repository repository;
+    protected User user;
+    protected Faker faker;
+    protected StaticProvider staticProvider;
 
     @BeforeClass
     public void setUp() {
@@ -27,6 +34,9 @@ public class BaseTest {
         navigationSteps = new NavigationSteps();
         repositorySteps = new RepositorySteps();
         userSteps = new UserSteps();
+        faker = new Faker();
+        staticProvider = new StaticProvider();
+
 
         Configuration.browser = ReadProperties.browserName();
         Configuration.baseUrl = ReadProperties.getUrl();
@@ -35,6 +45,15 @@ public class BaseTest {
 
         open("/");
 
+        user = User.builder()
+                .name(ReadProperties.username())
+                .password(ReadProperties.password())
+                .build();
+
+        repository = Repository.builder()
+                .name(faker.beer().name().replaceAll(" ", ""))
+                .description(faker.beer().name())
+                .build();
     }
 
     @AfterClass

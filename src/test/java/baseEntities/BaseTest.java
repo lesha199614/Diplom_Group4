@@ -7,7 +7,6 @@ import configuration.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
 import models.Repository;
 import models.User;
-import org.testng.ITestResult;
 import org.testng.annotations.*;
 import steps.NavigationSteps;
 import steps.RepositorySteps;
@@ -26,8 +25,9 @@ public class BaseTest {
     protected User user;
     protected Faker faker;
     protected StaticProvider staticProvider;
+    protected String textForDeletion;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
@@ -56,7 +56,7 @@ public class BaseTest {
                 .build();
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         closeWebDriver();
     }

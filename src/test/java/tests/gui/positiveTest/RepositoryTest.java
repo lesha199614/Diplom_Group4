@@ -44,7 +44,7 @@ public class RepositoryTest extends BaseTest {
 
     @Test(dependsOnMethods = "displayingDialogBoxTest")
     public void deleteRepositoryTest() {
-        String textForDeletion = repositorySteps.getDeleteText();
+        textForDeletion = repositorySteps.getDeleteText();
         repositorySteps.inputDataForDeleteRepository(textForDeletion)
                 .deleteRepositoryButton()
                 .getTextAboutDeleteRepository().shouldBe(visible);

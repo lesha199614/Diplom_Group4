@@ -2,45 +2,47 @@ package tests.gui.positiveTest;
 
 import baseEntities.BaseTest;
 import com.codeborne.selenide.Condition;
+import configuration.ReadProperties;
 import models.Repository;
+import models.User;
 import org.testng.annotations.Test;
 import tests.data.StaticProvider;
 
-import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 
 public class LimitValuesTest extends BaseTest {
-//    @Test(dataProvider = "dataForLimitValuesTest", dataProviderClass = StaticProvider.class)
-//    public void emptyString(String data, Condition expected) {
-//        Repository repository = Repository.builder()
-//                .name(data)
-//                .build();
-//
-//        navigationSteps.clickSignInButtonOnMainPage()
-//                .loginSuccessfulGitHub(user)
-//                .clickNewRepositoryButton()
-//                .inputInfoRepositoryByEmptyString(repository)
-//                .getCreateRepositoryButtonByEmptyStringLocator().shouldBe(expected);
-//    }
-
-    @Test
-    public void character1Test() {
+    @Test(dataProvider = "dataForLimitValuesTest", dataProviderClass = StaticProvider.class)
+    public void emptyString(String data, Condition expected) {
         Repository repository = Repository.builder()
-                .name("Q")
+                .name(data)
                 .build();
 
         navigationSteps.clickSignInButtonOnMainPage()
                 .loginSuccessfulGitHub(user)
                 .clickNewRepositoryButton()
-                .inputInfoRepository(repository)
-                .clickCreateRepositoryButton()
-                .successfulCreationRepositoryPage()
-                .shouldHave(attribute("value", "git@github.com:AQA18onl/Q.git"));
+                .inputInfoRepositoryByEmptyString(repository)
+                .getCreateRepositoryButtonByEmptyStringLocator().shouldBe(expected);
+    }
+
+
+    @Test
+    public void EmptyStringTest() {
+        Repository repository = Repository.builder()
+                .name("")
+                .build();
+
+        navigationSteps.clickSignInButtonOnMainPage()
+                .loginSuccessfulGitHub(user)
+                .clickNewRepositoryButton()
+                .inputInfoRepositoryByEmptyString(repository)
+                .getCreateRepositoryButtonByEmptyStringLocator().shouldBe(disabled);
     }
 
     @Test
-    public void characters100Test() {
+    public void positiveCharacter1Test() {
         Repository repository = Repository.builder()
-                .name("1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545")
+                .name(faker.bothify("?"))
                 .build();
 
         navigationSteps.clickSignInButtonOnMainPage()
@@ -49,7 +51,36 @@ public class LimitValuesTest extends BaseTest {
                 .inputInfoRepository(repository)
                 .clickCreateRepositoryButton()
                 .successfulCreationRepositoryPage()
-                .shouldHave(attribute("value",
-                        "git@github.com:AQA18onl/1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545.git"));
+                .shouldHave(text(repository.getName()));
+    }
+
+    @Test
+    public void positiveCharacters100Test() {
+        Repository repository = Repository.builder()
+                .name(faker.bothify("????????????????????????????????????????????????????????????????????????????????????????????????????"))
+                .build();
+
+        navigationSteps.clickSignInButtonOnMainPage()
+                .loginSuccessfulGitHub(user)
+                .clickNewRepositoryButton()
+                .inputInfoRepository(repository)
+                .clickCreateRepositoryButton()
+                .successfulCreationRepositoryPage()
+                .shouldHave(text(repository.getName()));
+    }
+
+    @Test
+    public void negativeCharacters101Test() {
+        Repository repository = Repository.builder()
+                .name(faker.bothify("?????????????????????????????????????????????????????????????????????????????????????????????????????"))
+                .build();
+
+        navigationSteps.clickSignInButtonOnMainPage()
+                .loginSuccessfulGitHub(user)
+                .clickNewRepositoryButton()
+                .inputInfoRepository(repository)
+                .clickCreateRepositoryButton()
+                .successfulCreationRepositoryPage()
+                .shouldNotHave(text(repository.getName()));
     }
 }

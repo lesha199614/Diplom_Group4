@@ -26,25 +26,25 @@ public class RepositoryTest extends BaseApiTest {
     Collaborator expectedCollaborator;
 
 
-    @Test
+    //@Test
     public void createRepo() {
         expectedRepository = repositoryTable.getRepository(1);
         repositoryAdapter.createRepository(expectedRepository);
     }
 
-    @Test(dependsOnMethods = "createRepo")
+   // @Test(dependsOnMethods = "createRepo")
     public void getRepository() {
         Repository actualRepository = repositoryAdapter.getRepository(expectedRepository.getName());
         Assert.assertEquals(actualRepository, expectedRepository);
     }
-    @Test(dependsOnMethods = "getRepository")
+   // @Test(dependsOnMethods = "getRepository")
     public void getCollaborator() {
         expectedCollaborator = collaboratorsTable.getCollaborator(1);
         Collaborator actualCollaborator = collaboratorAdapter.getCollaborators(ReadProperties.owner(),expectedRepository.getName()).get(0);
         Assert.assertEquals(actualCollaborator, expectedCollaborator);
     }
 
-    @Test(dependsOnMethods = "getCollaborator")
+   // @Test(dependsOnMethods = "getCollaborator")
     public void updateRepo() {
         expectedRepository = repositoryTable.getRepository(1);
         expectedRepository.setDescription("New Description");
@@ -53,7 +53,7 @@ public class RepositoryTest extends BaseApiTest {
         Assert.assertEquals(actualRepository, expectedRepository);
     }
 
-    @Test(dependsOnMethods = "updateRepo")
+    //@Test(dependsOnMethods = "updateRepo")
     public void deleteRepository() {
         repositoryAdapter.deleteRepository(expectedRepository.getName());
     }

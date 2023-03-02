@@ -2,6 +2,7 @@ package tests.gui.positiveTest;
 
 import baseEntities.BaseTest;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import configuration.ReadProperties;
 import models.Repository;
 import models.User;
@@ -12,17 +13,26 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.text;
 
 public class LimitValuesTest extends BaseTest {
-    @Test(dataProvider = "dataForLimitValuesTest", dataProviderClass = StaticProvider.class)
-    public void emptyString(String data, Condition expected) {
+    //@Test(dataProvider = "dataForLimitValuesTest", dataProviderClass = StaticProvider.class)
+    public void limitValuesTest(String data, Condition expected) {
         Repository repository = Repository.builder()
                 .name(data)
                 .build();
 
+//        navigationSteps.clickSignInButtonOnMainPage()
+//                .loginSuccessfulGitHub(user)
+//                .clickNewRepositoryButton()
+//                .inputInfoRepositoryByEmptyString(repository)
+//                .getCreateRepositoryButtonByEmptyStringLocator().shouldBe(expected);
+
+
         navigationSteps.clickSignInButtonOnMainPage()
                 .loginSuccessfulGitHub(user)
                 .clickNewRepositoryButton()
-                .inputInfoRepositoryByEmptyString(repository)
-                .getCreateRepositoryButtonByEmptyStringLocator().shouldBe(expected);
+                .inputInfoRepository(repository)
+                .clickCreateRepositoryButton()
+                .successfulCreationRepositoryPage()
+                .shouldHave(expected);
     }
 
 

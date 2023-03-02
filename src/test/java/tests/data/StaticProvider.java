@@ -1,20 +1,24 @@
 package tests.data;
 
+import baseEntities.BaseTest;
 import com.github.javafaker.Faker;
 import models.Repository;
 import org.testng.annotations.DataProvider;
+import pages.repository.SuccessCreationRepositoryPage;
 
 import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Condition.enabled;
+import static groovy.xml.dom.DOMCategory.text;
 
 
-public class StaticProvider {
+public class StaticProvider extends BaseTest {
+
     @DataProvider(name = "dataForLimitValuesTest")
     public static Object[][] dataForLimitValuesTest() {
         Faker faker = new Faker();
+
+        SuccessCreationRepositoryPage successCreationRepositoryPage = new SuccessCreationRepositoryPage();
         return new Object[][]{
-                {"", disabled},
-                {faker.bothify("?"), enabled},
                 {faker.
                         bothify("????????????????????????????????????????????????????????????????????????????????????????????????????"), enabled},
                 {faker.

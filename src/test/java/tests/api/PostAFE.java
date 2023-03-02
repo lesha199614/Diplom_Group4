@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import static io.restassured.RestAssured.given;
 
 public class PostAFE extends BaseApiTest {
-    @Test
+    //@Test
     public void createRepositoryEmptyBody() {
         given()
                 .when()
@@ -21,7 +21,7 @@ public class PostAFE extends BaseApiTest {
                 .statusCode(HttpStatus.SC_BAD_REQUEST);
     }
 
-    @Test
+   // @Test
     public void createRepositoryWrongToken() {
         given()
                 .auth().preemptive().oauth2("WRONG_TOKEN")

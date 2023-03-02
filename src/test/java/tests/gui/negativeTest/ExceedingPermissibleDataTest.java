@@ -4,7 +4,6 @@ import baseEntities.BaseTest;
 import models.Repository;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 
 public class ExceedingPermissibleDataTest extends BaseTest {

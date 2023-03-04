@@ -4,7 +4,6 @@ import baseEntities.BaseTest;
 import models.Repository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Condition.text;

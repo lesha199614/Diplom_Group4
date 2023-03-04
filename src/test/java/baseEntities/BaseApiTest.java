@@ -23,6 +23,9 @@ import services.DataBaseService;
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
+    protected Repository expectedRepository;
+    protected Collaborator expectedCollaborator;
+    protected User expectedUser;
     protected Gson gson;
     protected DataBaseService dbService;
     protected UserTable userTable;

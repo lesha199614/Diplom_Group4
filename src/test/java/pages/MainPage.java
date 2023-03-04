@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage {
-    private final SelenideElement signInButtonLocator = $(".HeaderMenu-link--sign-in");
+    private final SelenideElement signInButtonLocator = $(By.xpath("//a[contains( text(), 'Sign in')]"));
 
     public SelenideElement getSignInButtonLocator() {
         return signInButtonLocator;

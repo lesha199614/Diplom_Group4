@@ -20,13 +20,7 @@ import java.sql.SQLException;
 import static io.restassured.RestAssured.given;
 
 public class RepositoryTest extends BaseApiTest {
-
     Logger logger = LogManager.getLogger(RepositoryTest.class);
-
-    Repository expectedRepository;
-    Collaborator expectedCollaborator;
-
-
     @Test
     public void createRepo() {
         expectedRepository = repositoryTable.getRepository(1);
@@ -58,5 +52,4 @@ public class RepositoryTest extends BaseApiTest {
     public void deleteRepository() {
         repositoryAdapter.deleteRepository(expectedRepository.getName());
     }
-
 }

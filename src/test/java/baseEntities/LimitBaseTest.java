@@ -7,16 +7,16 @@ import configuration.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
 import models.Repository;
 import models.User;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import steps.NavigationSteps;
 import steps.RepositorySteps;
 import steps.UserSteps;
 
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-public class BaseTest {
+public class LimitBaseTest {
     protected NavigationSteps navigationSteps;
     protected RepositorySteps repositorySteps;
     protected UserSteps userSteps;
@@ -25,7 +25,7 @@ public class BaseTest {
     protected Faker faker;
     protected String textForDeletion;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
@@ -53,7 +53,7 @@ public class BaseTest {
                 .build();
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         closeWebDriver();
     }

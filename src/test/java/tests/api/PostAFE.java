@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import static io.restassured.RestAssured.given;
 
 public class PostAFE extends BaseApiTest {
-
     @Test
     public void createRepositoryEmptyBody() {
         given()
@@ -33,5 +32,4 @@ public class PostAFE extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_UNAUTHORIZED);
     }
-
 }

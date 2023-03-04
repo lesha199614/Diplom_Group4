@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import models.Repository;
 import models.User;
 import pages.LoginPage;
@@ -19,17 +20,20 @@ public class UserSteps {
         return this;
     }
 
+    @Step
     public UserSteps clickButtonSignInLoginPage() {
         loginPage.getLoginButtonLocator().click();
         return this;
     }
 
+    @Step
     public NavigationSteps loginSuccessfulGitHub(User user) {
         inputLoginData(user.getName(), user.getPassword());
         clickButtonSignInLoginPage();
         return new NavigationSteps();
     }
 
+    @Step
     public LoginPage loginIncorrect(User user) {
         inputLoginData(user.getName(), user.getPassword());
         clickButtonSignInLoginPage();

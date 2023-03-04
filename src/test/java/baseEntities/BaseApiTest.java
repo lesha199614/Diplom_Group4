@@ -42,7 +42,7 @@ public class BaseApiTest {
         this.collaboratorsTable = new CollaboratorsTable(dbService);
     }
 
-    //@BeforeSuite
+    @BeforeSuite
     public void setUp() {
         repositoryTable.createTable();
         userTable.createTable();
@@ -86,7 +86,7 @@ public class BaseApiTest {
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON);
     }
 
-    //@AfterTest
+    @AfterTest
     public void tearDown() {
         repositoryTable.dropTable();
         userTable.dropTable();

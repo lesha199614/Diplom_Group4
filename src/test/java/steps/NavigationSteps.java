@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import pages.MenuPage;
 import pages.MainPage;
 import pages.ProjectPage;
@@ -22,43 +23,50 @@ public class NavigationSteps {
         createRepositoryPage = new CreateRepositoryPage();
         repositorySettingsPage = new RepositorySettingsPage();
     }
-
+    @Step
     public UserSteps clickSignInButtonOnMainPage() {
         mainPage.getSignInButtonLocator().click();
         return new UserSteps();
     }
 
+    @Step
     public RepositorySteps clickNewRepositoryButton() {
         menuPage.getIconPlusButtonLocator().click();
         menuPage.getNewRepositoryButtonLocator().click();
         return new RepositorySteps();
     }
 
+    @Step
     public SuccessCreationRepositoryPage clickCreateRepositoryButton() {
         createRepositoryPage.getCreateRepositoryButtonLocator().click();
         return successCreationRepositoryPage;
     }
 
+    @Step
     public ProjectPage clickProjectButton() {
         successCreationRepositoryPage.getProjectButtonLocator().click();
         return new ProjectPage();
     }
 
+    @Step
     public NavigationSteps clickSettingButton() {
         successCreationRepositoryPage.getSettingButtonLocator().click();
         return this;
     }
 
+    @Step
     public RepositorySettingsPage clickDeleteRepositoryButtonDialogBoxTest() {
         repositorySettingsPage.getDeleteRepositoryButtonLocator().click();
         return new RepositorySettingsPage();
     }
 
+    @Step
     public ListRepositoriesPage deleteRepositoryButton() {
         repositorySettingsPage.getConfirmDeleteRepositoryButtonLocator().click();
         return new ListRepositoriesPage();
     }
 
+    @Step
     public ListRepositoriesPage openRepositories() {
         repositorySettingsPage.getRepositories().click();
         return new ListRepositoriesPage();

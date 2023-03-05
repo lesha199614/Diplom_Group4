@@ -34,8 +34,4 @@ public class GetAFE extends BaseApiTest {
                 .statusCode(HttpStatus.SC_NOT_FOUND);
     }
 
-    @Test
-    public void close() {
-        dbService.closeConnection();
-    }
 }

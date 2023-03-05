@@ -47,6 +47,9 @@ public class BaseApiTest {
 
     @BeforeSuite
     public void setUp() {
+        repositoryTable.dropTable();
+        userTable.dropTable();
+        collaboratorsTable.dropTable();
         repositoryTable.createTable();
         userTable.createTable();
         collaboratorsTable.createTable();

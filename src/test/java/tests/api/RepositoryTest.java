@@ -30,12 +30,14 @@ public class RepositoryTest extends BaseApiTest {
     @Test(dependsOnMethods = "createRepo")
     public void getRepository() {
         Repository actualRepository = repositoryAdapter.getRepository(expectedRepository.getName());
+        logger.info("Comparing expected Repository and repository in the GitHub");
         Assert.assertEquals(actualRepository, expectedRepository);
     }
     @Test(dependsOnMethods = "getRepository")
     public void getCollaborator() {
         expectedCollaborator = collaboratorsTable.getCollaborator(1);
         Collaborator actualCollaborator = collaboratorAdapter.getCollaborators(ReadProperties.owner(),expectedRepository.getName()).get(0);
+        logger.info("Comparing expected collaborator and collaborator in the GitHub");
         Assert.assertEquals(actualCollaborator, expectedCollaborator);
     }
 

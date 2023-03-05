@@ -8,20 +8,13 @@ import java.sql.*;
 
 public class DataBaseService {
 
-//    static final String DB_TYPE = "mysql";
-//    static final String SERVER_NAME = "sql7.freesqldatabase.com";
-//    static final String PORT = "3306";
-//    static final String DB_NAME = "sql7600788";
-//    static final String DB_USER = "sql7600788";
-//    static final String DB_PASSWORD = "kB88kjGWPY";
+    static final String DB_TYPE = "mysql";
+    static final String SERVER_NAME = "sql7.freesqldatabase.com";
+    static final String PORT = "3306";
+    static final String DB_NAME = "sql7602365";
+    static final String DB_USER = "sql7602365";
+    static final String DB_PASSWORD = "Rr26EGcaER";
 
-    static final String DB_TYPE = "postgresql";
-    static final String SERVER_NAME = "localhost";
-    static final String PORT = "5432";
-    static final String DB_NAME = "postgres";
-
-    static final String DB_USER = "postgres";
-    static final String DB_PASSWORD = "Platenclene987";
 
     Connection connection;
 
@@ -29,14 +22,13 @@ public class DataBaseService {
 
     public DataBaseService() {
         try {
-            Class.forName("org.postgresql.Driver");
-//            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
         String jdbc = "jdbc:" + DB_TYPE + "://" + SERVER_NAME + ":" + PORT + "/" + DB_NAME;
-        //String DB_URL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7600791";
+
 
         try {
             connection = DriverManager.getConnection(jdbc, DB_USER, DB_PASSWORD);

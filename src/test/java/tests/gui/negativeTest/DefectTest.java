@@ -16,7 +16,7 @@ public class DefectTest extends BaseTest {
         logger.info("Making an intentional mistake, to get a screenshot of the error");
         User user = User.builder()
                 .name(ReadProperties.username())
-                .password("12345")
+                .password(ReadProperties.password())
                 .build();
 
         navigationSteps.clickSignInButtonOnMainPage()

@@ -28,7 +28,7 @@ public class RepositoryTest extends BaseTest {
         repositorySteps
                 .chooseFileButtonClick()
                 .downloadFile()
-                .getCheckDownloadFileLocator().shouldBe(visible);
+                .getCheckDownloadFile().shouldBe(visible);
     }
 
 
@@ -46,7 +46,7 @@ public class RepositoryTest extends BaseTest {
         navigationSteps.openRepositories().repos().get(0).click();
         navigationSteps.clickSettingButton()
                 .clickDeleteRepositoryButtonDialogBoxTest()
-                .getInputTextForDeleteRepositoryLocator().shouldBe(visible);
+                .getInputTextForDeleteRepository().shouldBe(visible);
     }
 
     @Test(dependsOnMethods = "displayingDialogBoxTest")

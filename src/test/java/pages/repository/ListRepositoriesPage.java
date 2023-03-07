@@ -14,7 +14,7 @@ public class ListRepositoriesPage {
 
     private final SelenideElement textAboutDeleteRepository = $(By.xpath
             ("//div[contains( text(), 'successfully deleted')]"));
-    List<SelenideElement> repos = $$(By.xpath("//*[@id=\"user-repositories-list\"]//a"));
+    List<SelenideElement> repos = $$("#user-repositories-list a");
 
 
     public SelenideElement getTextAboutDeleteRepository() {

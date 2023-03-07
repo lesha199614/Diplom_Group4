@@ -50,7 +50,7 @@ public class NavigationSteps {
 
     @Step
     public NavigationSteps clickSettingButton() {
-        successCreationRepositoryPage.getSettingButtonLocator().click();
+        successCreationRepositoryPage.getSettingButton().click();
         return this;
     }
 

@@ -9,6 +9,15 @@
     <artifactId>TAF_AQA18_onl</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <profiles>
+        <profile>
+            <id>username</id>
+            <properties>
+                <username>${TEST_PARAM}</username>
+            </properties>
+        </profile>
+    </profiles>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>

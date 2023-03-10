@@ -1,5 +1,6 @@
 package steps;
 
+import configuration.ReadProperties;
 import io.qameta.allure.Step;
 import pages.MenuPage;
 import pages.MainPage;
@@ -38,31 +39,31 @@ public class NavigationSteps {
 
     @Step
     public SuccessCreationRepositoryPage clickCreateRepositoryButton() {
-        createRepositoryPage.getCreateRepositoryButtonLocator().click();
+        createRepositoryPage.getCreateRepositoryButton().click();
         return successCreationRepositoryPage;
     }
 
     @Step
     public ProjectPage clickProjectButton() {
-        successCreationRepositoryPage.getProjectButtonLocator().click();
+        successCreationRepositoryPage.getProjectButtonLocator(ReadProperties.owner()).click();
         return new ProjectPage();
     }
 
     @Step
     public NavigationSteps clickSettingButton() {
-        successCreationRepositoryPage.getSettingButtonLocator().click();
+        successCreationRepositoryPage.getSettingButton().click();
         return this;
     }
 
     @Step
     public RepositorySettingsPage clickDeleteRepositoryButtonDialogBoxTest() {
-        repositorySettingsPage.getDeleteRepositoryButtonLocator().click();
+        repositorySettingsPage.getDeleteRepositoryButton().click();
         return new RepositorySettingsPage();
     }
 
     @Step
     public ListRepositoriesPage deleteRepositoryButton() {
-        repositorySettingsPage.getConfirmDeleteRepositoryButtonLocator().click();
+        repositorySettingsPage.getConfirmDeleteRepositoryButton().click();
         return new ListRepositoriesPage();
     }
 

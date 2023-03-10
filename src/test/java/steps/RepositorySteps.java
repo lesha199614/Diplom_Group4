@@ -1,6 +1,5 @@
 package steps;
 
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import models.Repository;
 import pages.repository.CreateRepositoryPage;
@@ -25,17 +24,17 @@ public class RepositorySteps {
 
     @Step
     public NavigationSteps inputInfoRepository(Repository repository) {
-        createRepositoryPage.getInputRepositoryNameLocator().click();
-        createRepositoryPage.getInputRepositoryNameLocator().setValue(repository.getName());
-        createRepositoryPage.getInputDescriptionRepositoryLocator().click();
-        createRepositoryPage.getInputDescriptionRepositoryLocator().setValue(repository.getDescription());
+        createRepositoryPage.getInputRepositoryName().click();
+        createRepositoryPage.getInputRepositoryName().setValue(repository.getName());
+        createRepositoryPage.getInputDescriptionRepository().click();
+        createRepositoryPage.getInputDescriptionRepository().setValue(repository.getDescription());
         return new NavigationSteps();
     }
 
     @Step
     public NavigationSteps inputDataForDeleteRepository(String textForDeletion) {
-        repositorySettingsPage.getInputTextForDeleteRepositoryLocator().click();
-        repositorySettingsPage.getInputTextForDeleteRepositoryLocator().setValue(textForDeletion);
+        repositorySettingsPage.getInputTextForDeleteRepository().click();
+        repositorySettingsPage.getInputTextForDeleteRepository().setValue(textForDeletion);
         return new NavigationSteps();
     }
 
@@ -47,7 +46,7 @@ public class RepositorySteps {
 
     @Step
     public DownloadFilePage downloadFile() {
-        downloadFilePage.getChooseFileButtonLocator().uploadFile(new File("src/test/resources/picture.jpg"));
+        downloadFilePage.getChooseFileButton().uploadFile(new File("src/test/resources/picture.jpg"));
         return downloadFilePage;
     }
 

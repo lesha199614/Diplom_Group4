@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Main Suite" parallel="tests" thread-count="2">
+<suite name="Main Suite">
     <test name="API">
         <classes>
             <class name="tests.api.UserApiTest"/>
@@ -12,11 +12,14 @@
     <test name="GUI">
         <classes>
             <class name="tests.gui.negativeTest.IncorrectDataTest"></class>
+            <class name="tests.gui.negativeTest.ExceedingPermissibleDataTest"></class>
+            <class name="tests.gui.negativeTest.DefectTest"></class>
+            <class name="tests.gui.positiveTest.RepositoryTest"></class>
         </classes>
     </test>
-    <test name="GUI_Positive">
+    <test name="GUI_Positive"  parallel="methods" thread-count="2">
         <classes>
-            <class name="tests.gui.positiveTest.RepositoryTest"></class>
+            <class name="tests.gui.positiveTest.LimitValuesTestLimit"></class>
         </classes>
     </test>
 </suite>

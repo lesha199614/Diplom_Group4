@@ -8,6 +8,18 @@
         <value>110.0.5481.178</value>
     </parameter>
     <parameter>
+        <key>Selenide.Version</key>
+        <value>6.9.0</value>
+    </parameter>
+    <parameter>
+        <key>Rest-Assured.Version</key>
+        <value>5.3.0</value>
+    </parameter>
+    <parameter>
+        <key>MySQL-Connector-Java.Version</key>
+        <value>8.0.28</value>
+    </parameter>
+    <parameter>
         <key>Stand</key>
         <value>Production</value>
     </parameter>

@@ -1,10 +1,8 @@
 package pages.repository;
 
 import com.codeborne.selenide.SelenideElement;
-import models.Collaborator;
 import org.openqa.selenium.By;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;

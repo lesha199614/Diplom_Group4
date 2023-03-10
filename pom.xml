@@ -13,7 +13,7 @@
         <profile>
             <id>username</id>
             <properties>
-                <username>${username}</username>
+                <username>${env.username}</username>
 <!--                <password>${password}</password>-->
             </properties>
         </profile>

@@ -13,7 +13,7 @@
         <profile>
             <id>username</id>
             <properties>
-                <username>${userName}</username>
+                <username>${username}</username>
             </properties>
         </profile>
         <profile>

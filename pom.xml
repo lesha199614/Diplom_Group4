@@ -13,7 +13,7 @@
         <profile>
             <id>credentials</id>
             <properties>
-                <username>${username}</username>
+                <username>${email}</username>
 <!--                <password>${password}</password>-->
             </properties>
         </profile>

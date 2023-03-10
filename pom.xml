@@ -11,9 +11,9 @@
 
     <profiles>
         <profile>
-            <id>credentials</id>
+            <id>username</id>
             <properties>
-                <username>${email}</username>
+                <username>${username}</username>
 <!--                <password>${password}</password>-->
             </properties>
         </profile>

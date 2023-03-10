@@ -33,7 +33,7 @@ public class ReadProperties {
     }
 
     public static String password() {
-        return properties.getProperty("password");
+        return System.getProperty("passwordCICD");
     }
 
     public static String database() {

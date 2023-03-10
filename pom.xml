@@ -11,14 +11,9 @@
 
     <profiles>
         <profile>
-            <id>username</id>
+            <id>credentials</id>
             <properties>
                 <username>${username}</username>
-            </properties>
-        </profile>
-        <profile>
-            <id>password</id>
-            <properties>
                 <password>${password}</password>
             </properties>
         </profile>

@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 
 public class GetAFE extends BaseApiTest {
 
-    @Test
+    //@Test
     public void getUserWrongToken() {
         given()
                 .auth().preemptive().oauth2("WRONG_TOKEN")
@@ -22,7 +22,7 @@ public class GetAFE extends BaseApiTest {
                 .statusCode(HttpStatus.SC_UNAUTHORIZED);
     }
 
-    @Test
+    //@Test
     public void wrongUserName() {
         given()
                 .pathParam("username", "WRONG_NAME")

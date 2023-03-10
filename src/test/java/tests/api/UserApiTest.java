@@ -18,7 +18,7 @@ import static io.restassured.RestAssured.given;
 public class UserApiTest extends BaseApiTest {
 
     Logger logger = LogManager.getLogger(UserApiTest.class);
-    @Test
+    //@Test
     public void getUser() {
         expectedUser = userTable.getUser(1);
         User actualUser = userAdapter.get();

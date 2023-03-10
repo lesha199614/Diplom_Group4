@@ -29,11 +29,11 @@ public class ReadProperties {
     }
 
     public static String username() {
-        return properties.getProperty("username");
+        return System.getProperty("usernameCICD");
     }
 
     public static String password() {
-        return properties.getProperty("password");
+        return System.getProperty("passwordCICD");
     }
 
     public static String database() {
@@ -41,7 +41,7 @@ public class ReadProperties {
     }
 
     public static String token() {
-        return properties.getProperty("token")+properties.getProperty("token2");
+        return properties.getProperty("token") + properties.getProperty("token2");
     }
 
 

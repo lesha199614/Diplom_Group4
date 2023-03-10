@@ -14,7 +14,7 @@
             <id>credentials</id>
             <properties>
                 <username>${username}</username>
-                <password>${password}</password>
+<!--                <password>${password}</password>-->
             </properties>
         </profile>
     </profiles>

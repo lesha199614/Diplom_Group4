@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-
 @Builder
 @Data
 @ToString
@@ -18,5 +17,4 @@ public class Collaborator {
     private String type;
     @SerializedName(value = "role_name")
     private String roleName;
-
 }

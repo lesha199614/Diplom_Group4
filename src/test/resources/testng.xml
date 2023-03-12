@@ -11,15 +11,15 @@
     </test>
     <test name="GUI">
         <classes>
-            <class name="tests.gui.negativeTest.IncorrectDataTest"></class>
-            <class name="tests.gui.negativeTest.ExceedingPermissibleDataTest"></class>
-            <class name="tests.gui.negativeTest.DefectTest"></class>
-            <class name="tests.gui.positiveTest.RepositoryTest"></class>
+            <class name="tests.gui.negativeTest.IncorrectDataTest"/>
+            <class name="tests.gui.negativeTest.ExceedingPermissibleDataTest"/>
+            <class name="tests.gui.negativeTest.DefectTest"/>
+            <class name="tests.gui.positiveTest.RepositoryTest"/>
         </classes>
     </test>
-    <test name="GUI_Positive"  parallel="methods" thread-count="2">
+    <test name="GUI_LimitValues" parallel="methods" thread-count="2">
         <classes>
-            <class name="tests.gui.positiveTest.LimitValuesTestLimit"></class>
+            <class name="tests.gui.positiveTest.LimitValuesTestLimit"/>
         </classes>
     </test>
 </suite>

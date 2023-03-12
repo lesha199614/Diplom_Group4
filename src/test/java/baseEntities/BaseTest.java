@@ -12,7 +12,6 @@ import steps.NavigationSteps;
 import steps.RepositorySteps;
 import steps.UserSteps;
 
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -33,7 +32,6 @@ public class BaseTest {
         repositorySteps = new RepositorySteps();
         userSteps = new UserSteps();
         faker = new Faker();
-
 
         Configuration.browser = ReadProperties.browserName();
         Configuration.baseUrl = ReadProperties.getUrl();

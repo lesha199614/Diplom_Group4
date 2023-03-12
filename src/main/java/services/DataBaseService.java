@@ -2,7 +2,6 @@ package services;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.remote.service.DriverService;
 
 import java.sql.*;
 
@@ -37,7 +36,6 @@ public class DataBaseService {
 
         String jdbc = "jdbc:" + DB_TYPE + "://" + SERVER_NAME + ":" + PORT + "/" + DB_NAME;
 
-
         try {
             connection = DriverManager.getConnection(jdbc, DB_USER, DB_PASSWORD);
             logger.info("DB connected successfully...");
@@ -71,9 +69,8 @@ public class DataBaseService {
         }
     }
 
-
     public void closeConnection() {
-        if(connection != null){
+        if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {

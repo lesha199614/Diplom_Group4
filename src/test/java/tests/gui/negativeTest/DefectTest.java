@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class DefectTest extends BaseTest {
     Logger logger = LogManager.getLogger(DefectTest.class);
+
     @Test
     public void defectTest() {
         logger.info("Making an intentional mistake, to get a screenshot of the error");

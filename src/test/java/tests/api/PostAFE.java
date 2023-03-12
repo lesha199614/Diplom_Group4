@@ -5,8 +5,6 @@ import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import utils.Endpoints;
 
-import java.sql.SQLException;
-
 import static io.restassured.RestAssured.given;
 
 public class PostAFE extends BaseApiTest {

@@ -2,7 +2,6 @@ package dbTables;
 
 import configuration.ReadProperties;
 import models.Collaborator;
-import models.User;
 import services.DataBaseService;
 
 import java.sql.ResultSet;

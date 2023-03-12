@@ -10,7 +10,6 @@ import utils.Endpoints;
 import static io.restassured.RestAssured.given;
 
 public class UserAdapter {
-
     Logger logger = LogManager.getLogger(UserAdapter.class);
 
     public User get() {

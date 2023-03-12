@@ -5,7 +5,6 @@ import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import utils.Endpoints;
 
-
 import static io.restassured.RestAssured.given;
 
 public class GetAFE extends BaseApiTest {
@@ -33,5 +32,4 @@ public class GetAFE extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_NOT_FOUND);
     }
-
 }

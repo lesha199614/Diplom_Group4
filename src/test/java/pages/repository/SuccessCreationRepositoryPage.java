@@ -20,7 +20,7 @@ public class SuccessCreationRepositoryPage {
     }
 
     public SelenideElement getProjectButtonLocator(String name) {
-        return  $(By.xpath(projectButtonLocator.replace("replace", name)));
+        return $(By.xpath(projectButtonLocator.replace("replace", name)));
     }
 
     public SelenideElement getProceedToFileDownloadButton() {

@@ -23,7 +23,6 @@ public class ReadProperties {
         return properties.getProperty("apiUrl");
     }
 
-
     public static String browserName() {
         return properties.getProperty("browser");
     }
@@ -41,9 +40,8 @@ public class ReadProperties {
     }
 
     public static String token() {
-        return properties.getProperty("token")+properties.getProperty("token2");
+        return properties.getProperty("token") + properties.getProperty("token2");
     }
-
 
     public static String owner() {
         return properties.getProperty("owner");

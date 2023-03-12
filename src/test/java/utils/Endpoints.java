@@ -7,4 +7,5 @@ public class Endpoints {
     public static final String GET_REPOSITORY = "/repos/{owner}/{repo}";
     public static final String UPDATE_REPOSITORY = "/repos/{owner}/{repo}";
     public static final String DELETE_REPOSITORY = "/repos/{owner}/{repo}";
+    public static final String GET_COLLABORATORS = "/repos/{owner}/{repo}/collaborators";
 }

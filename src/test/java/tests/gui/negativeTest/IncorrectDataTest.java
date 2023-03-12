@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 
 public class IncorrectDataTest extends BaseTest {
     Logger logger = LogManager.getLogger(IncorrectDataTest.class);
+
     @Test
     public void incorrectDataTest() {
         logger.info("Enter the wrong password when logging into your account, and check for an error");

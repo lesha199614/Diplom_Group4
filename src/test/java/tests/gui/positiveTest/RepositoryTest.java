@@ -5,12 +5,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
-
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
 
 public class RepositoryTest extends BaseTest {
     Logger logger = LogManager.getLogger(RepositoryTest.class);
+
     @Test
     public void creatingRepositoryTest() {
         logger.info("Create a repository and make sure it is created");

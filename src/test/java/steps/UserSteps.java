@@ -1,10 +1,8 @@
 package steps;
 
 import io.qameta.allure.Step;
-import models.Repository;
 import models.User;
 import pages.LoginPage;
-import pages.repository.SuccessCreationRepositoryPage;
 
 public class UserSteps {
     private LoginPage loginPage;

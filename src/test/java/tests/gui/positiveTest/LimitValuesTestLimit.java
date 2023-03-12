@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 
 public class LimitValuesTestLimit extends LimitBaseTest {
     Logger logger = LogManager.getLogger(LimitValuesTestLimit.class);
+
     @Test
     public void EmptyStringTest() {
         logger.info("Check the boundary values with an empty string.Check the inclusion of the button");

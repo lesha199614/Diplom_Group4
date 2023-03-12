@@ -24,6 +24,7 @@ public class NavigationSteps {
         createRepositoryPage = new CreateRepositoryPage();
         repositorySettingsPage = new RepositorySettingsPage();
     }
+
     @Step
     public UserSteps clickSignInButtonOnMainPage() {
         mainPage.getSignInButtonLocator().click();

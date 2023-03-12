@@ -35,17 +35,17 @@ public class BaseApiTest {
     protected CollaboratorsTable collaboratorsTable;
     protected CollaboratorAdapter collaboratorAdapter;
 
-//    public BaseApiTest() {
-//        this.dbService = new DataBaseService();
-//        this.userAdapter = new UserAdapter();
-//        this.repositoryAdapter = new RepositoryAdapter();
-//        this.collaboratorAdapter = new CollaboratorAdapter();
-//        this.userTable = new UserTable(dbService);
-//        this.repositoryTable = new RepositoryTable(dbService);
-//        this.collaboratorsTable = new CollaboratorsTable(dbService);
-//    }
+    public BaseApiTest() {
+        this.dbService = new DataBaseService();
+        this.userAdapter = new UserAdapter();
+        this.repositoryAdapter = new RepositoryAdapter();
+        this.collaboratorAdapter = new CollaboratorAdapter();
+        this.userTable = new UserTable(dbService);
+        this.repositoryTable = new RepositoryTable(dbService);
+        this.collaboratorsTable = new CollaboratorsTable(dbService);
+    }
 
-    //@BeforeSuite
+    @BeforeSuite
     public void setUp() {
         repositoryTable.dropTable();
         userTable.dropTable();
@@ -92,7 +92,7 @@ public class BaseApiTest {
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON);
     }
 
-    //@AfterTest
+    @AfterSuite
     public void tearDown() {
         repositoryTable.dropTable();
         userTable.dropTable();
@@ -100,3 +100,23 @@ public class BaseApiTest {
         dbService.closeConnection();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,6 @@ public class BaseTest {
     protected Repository repository;
     protected User user;
     protected Faker faker;
-    protected String textForDeletion;
 
     @BeforeClass
     public void setUp() {
@@ -33,7 +32,6 @@ public class BaseTest {
         repositorySteps = new RepositorySteps();
         userSteps = new UserSteps();
         faker = new Faker();
-
 
         Configuration.browser = ReadProperties.browserName();
         Configuration.baseUrl = ReadProperties.getUrl();
